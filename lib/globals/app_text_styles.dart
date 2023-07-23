@@ -30,7 +30,7 @@ class AppTextStyles{
     );
   }
 
-  static TextStyle normalStyle({Color color = Colors.white, doubel fontSize = 16}){
+  static TextStyle normalStyle({Color color = Colors.white, double fontSize = 16}){
     return TextStyle(
       fontWeight: FontWeight.w500,
       fontSize: fontSize,
@@ -43,7 +43,7 @@ class AppTextStyles{
   static TextStyle comfortaaStyle(){
     return GoogleFonts.comfortaa(
       fontSize: 18,
-      fontWeight.w800,
+      fontWeight: FontWeight.w800,
       color: Colors.grey
     );
   }
