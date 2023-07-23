@@ -4,6 +4,7 @@ import 'package:my_portfolio/globals/app_assets.dart';
 import 'package:my_portfolio/globals/app_colors.dart';
 import 'package:my_portfolio/globals/app_text_styles.dart';
 import 'package:my_portfolio/globals/constants.dart';
+import 'package:my_portfolio/widgets/profile_animation.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -26,125 +27,147 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    return Scaffold(
-      backgroundColor: AppColors.bgColor,
-      appBar: AppBar(
-        backgroundColor: AppColors.bgColor,
-        toolbarHeight: 90,
-        titleSpacing: 100,
-        elevation: 0,
-        title: Row(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            const Text('Portfolio'),
-            const Spacer(),
-            Text('Home', style: AppTextStyles.headerTextStyle(),),
-            const SizedBox(width: 30,),
-            Text('About', style: AppTextStyles.headerTextStyle(),),
-            const SizedBox(width: 30,),
-            Text('Services', style: AppTextStyles.headerTextStyle(),),
-            const SizedBox(width: 30,),
-            Text('Portfolio', style: AppTextStyles.headerTextStyle(),),
-            const SizedBox(width: 30,),
-            Text('Contact', style: AppTextStyles.headerTextStyle(),),
-            const SizedBox(width: 30,),
-          ],
-        ),
+    return HelperClass(
+      mobile: Column(
+        children: [
+          buildHomePersonalInfo(size),
+          Constants.sizedBox(height: 25.0),
+          const ProfileAnimation()
+        ]
       ),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.only(top: size.height * 0.3, left: size.width * 0.2, right: size.width * 0.2),
-        child: Column(
-          children: [
-            Row(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Hello, It\'s Me', style: AppTextStyles.montserratStyle(color: Colors.white),),
-                    Constants.sizedBox(height: 15),
-                    Text('Avi kumar', style: AppTextStyles.headingStyles(),),
-                    Constants.sizedBox(height: 15),
-                    Row(
-                      children: [
-                        Text('And I\'m a ', style: AppTextStyles.montserratStyle(color: Colors.white),),
-                        AnimatedTextKit(animatedTexts: [
-                          TyperAnimatedText('Flutter Developer',
-                              textStyle: AppTextStyles.montserratStyle(color: Colors.lightBlue)),
-                          TyperAnimatedText('Full Stack Web Developer',
-                              textStyle: AppTextStyles.montserratStyle(color: Colors.lightBlue)),
-                        ],
-                          pause: const Duration(milliseconds: 1000),
-                          displayFullTextOnTap: true,
-                          stopPauseOnTap: true,)
-                      ],
-                    ),
-                    Constants.sizedBox(height: 15),
-                    SizedBox(
-                      width: size.width * 0.5,
-                      child: Text(
-                        'Everyone knows that paper is made from trees.'
-                          'But when one looks at trees,',
-                        style: AppTextStyles.normalStyle(),),
-                    ),
-                    Constants.sizedBox(height: 22),
-                    Row(
-                      children: [
-                        buildSocialButton(asset: AppAssets.facebook),
-                        Constants.sizedBox(width: 12),
-                        buildSocialButton(asset: AppAssets.twitter),
-                        Constants.sizedBox(width: 12),
-                        buildSocialButton(asset: AppAssets.linkedIn),
-                        Constants.sizedBox(width: 12),
-                        buildSocialButton(asset: AppAssets.insta),
-                        Constants.sizedBox(width: 12),
-                        buildSocialButton(asset: AppAssets.github),
-                      ],
-                    ),
-                    Constants.sizedBox(height: 18),
-                    MaterialButton(
-                      onPressed: (){},
-                      color: AppColors.themeColor,
-                      splashColor: AppColors.lawGreen,
-                      padding: EdgeInsets.symmetric(horizontal: 22, vertical: 12),
-                      shape: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                      borderSide: BorderSide.none),
-                      hoverColor: AppColors.aqua,
-                      elevation: 6,
-                      height: 46,
-                      minWidth: 130,
-                      focusElevation: 12,
-                     child: Text(
-                      'Download cv',
-                      style: AppTextStyles.headerTextStyle()),
-                    ),
-                  ],
-                )
-              ],
-            )
-          ],
-        ),
+      tablet: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Expanded(child: buildHomePersonalInfo(size)),
+          const ProfileAnimation(),
+        ],
       ),
+      desktop: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Expanded(child: buildHomePersonalInfo(size)),
+          const ProfileAnimation(),
+        ],
+      ),
+      paddingWidth: size.width * 0.1,
+      bgColor: Colors.transparent,
     );
   }
 
-  Ink buildSocialButton({required String asset}){
-    return Ink(
-      maxRadius: 20,
-      backgroundColor: AppColors.themeColor,
-      child: InkWell(
-        splashColor: AppColors.lawGreen,
-        hoverColor: AppColors.aqua,
-        child: CircleAvatar(
-          maxRadius: 18,
-          backgroundColor: AppColors.bgColor,
-          child: Image.asset(
-            AppAssets.github,
-            width: 20,
-            height: 24,
-            color: AppColors.themeColor,
-            fit: BoxFit.contain,),
+  Column buildHomePersonalInfo(Size size){
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        FadeInDown(
+          duration: const Duration(milliseconds: 1200),
+          child: Text(
+            'Hello, It\'s Me',
+            style: AppTextStyles.montserratStyle(color: Colors.white),
+          )
         ),
+        Constants.sizedBox(height: 15.0),
+        FadeInRight(
+          duration: const Duration(milliseconds: 1400),
+          child: Text(
+            'Avi kumar',
+            style: AppTextStyles.headingStyles(),
+          )
+        ),
+        Constants.sizedBox(height: 15.0),
+        FadeInLeft(
+          duration: const Duration(milliseconds: 1400),
+          child: Row(
+            children: [
+              Text(
+                'And I\'m a ',
+                style: AppTextStyles.montserratStyle(color: Colors.white),
+              ),
+              AnimatedTextKit(animatedTexts: [
+                TyperAnimatedText(
+                  'Flutter Developer',
+                  textStyle: AppTextStyles.montserratStyle(color: Colors.lightBlue),
+                ),
+                TyperAnimatedText('Full Stack Web Developer',
+                textStyle: AppTextStyles.montserratStyle(color: Colors.lightBlue))
+              ],
+              pause: const Duration(milliseconds: 1000),
+              displayFullTextOnTap: true,
+              stopPauseOnTap: true,)
+            ],
+          )
+        ),
+        Constants.sizedBox(height: 15.0),
+        FadeInDown(
+          duration: const Duration(milliseconds: 1600),
+          child: Expanded(child: Text(
+            'In publishing and graphic design, Loreum ipsum is a placeholdeer '
+                'text commonly used to demonstrate the visual form of a document.',
+            style: AppTextStyles.normalStyle(),
+          ))
+        ),
+        Constants.sizedBox(height: 22.0),
+        FadeInUp(
+          duration: const Duration(milliseconds: 1600),
+          child: SizedBox(
+            height: 48,
+            child: ListView.separated(
+              itemCount: socialButtons.length,
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+              separatorBuilder: (context, child) =>
+              Constants.sizedBox(width: 8.0),
+                itemBuilder: (context, index){
+                return InkWell(
+                  onTap: (){},
+                  onHover: (value){
+                    setState(() {
+                      if(value){
+                        socialBI = index;
+                      }else {
+                        socialBI = null;
+                      }
+                    });
+                  },
+                  borderRadius: BorderRadius.circular(550.0),
+                  hoverColor: AppColors.themeColor,
+                  splashColor: AppColors.lawGreen,
+                  child: buildSocialButton(
+                    asset: socialButtons[index],
+                    hover: socialBI == index ? true : false
+                  ),
+                );
+                },  ),
+          )
+        ),
+        Constants.sizedBox(height: 18.0),
+        FadeInUp(
+          duration: const Duration(milliseconds: 1800),
+          child: AppButtons.buildMaterialButton(
+            onTap: (){}, buttonName: 'Download CV',
+          )
+        )
+      ],
+    );
+  }
+  Ink buildSocialButton({required String asset, required bool hover}) {
+    return Ink(
+      width: 45,
+      height: 45,
+      decoration: BoxDecoration(
+        border: Border.all(color: AppColors.themeColor, width: 2.0),
+        color: AppColors.bgColor,
+        shape: BoxShape.circle,
+      ),
+      padding: const EdgeInsets.all(6),
+      child: Image.asset(
+        asset,
+        width: 10,
+        height: 12,
+        color: hover ? AppColors.bgColor : AppColors.themeColor,
+        // fit: BoxFit.fill,
       ),
     );
   }
