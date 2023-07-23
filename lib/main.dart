@@ -15,8 +15,9 @@ class MyApp extends StatelessWidget {
       title: 'My Portfolio',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        // useMaterial3: true,
+        primarySwatch: Colors.blue,
       ),
       home: const HomePage(),
     );
