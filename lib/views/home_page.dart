@@ -4,6 +4,7 @@ import 'package:my_portfolio/globals/app_assets.dart';
 import 'package:my_portfolio/globals/app_colors.dart';
 import 'package:my_portfolio/globals/app_text_styles.dart';
 import 'package:my_portfolio/globals/constants.dart';
+import 'package:my_portfolio/helper%20class/helper_class.dart';
 import 'package:my_portfolio/widgets/profile_animation.dart';
 
 class HomePage extends StatefulWidget {
