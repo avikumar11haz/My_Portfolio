@@ -5,8 +5,23 @@ import 'package:my_portfolio/globals/app_colors.dart';
 import 'package:my_portfolio/globals/app_text_styles.dart';
 import 'package:my_portfolio/globals/constants.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final socialButtons = <String>[
+    AppAssets.facebook,
+    AppAssets.twitter,
+    AppAssets.linkedIn,
+    AppAssets.insta,
+    AppAssets.github
+  ];
+
+  var socialBI;
 
   @override
   Widget build(BuildContext context) {
@@ -74,19 +89,35 @@ class HomePage extends StatelessWidget {
                     Constants.sizedBox(height: 22),
                     Row(
                       children: [
-                        CircleAvatar(
-                          maxRadius: 22,
-                          backgroundColor: AppColors.themeColor,
-                          child: CircleAvatar(
-                            maxRadius: 20,
-                            backgroundColor: AppColors.bgColor,
-                            child: Image.asset(AppAssets.facebook,
-                            width: 20,
-                            height: 18,),
-                          ),
-                        )
+                        buildSocialButton(asset: AppAssets.facebook),
+                        Constants.sizedBox(width: 12),
+                        buildSocialButton(asset: AppAssets.twitter),
+                        Constants.sizedBox(width: 12),
+                        buildSocialButton(asset: AppAssets.linkedIn),
+                        Constants.sizedBox(width: 12),
+                        buildSocialButton(asset: AppAssets.insta),
+                        Constants.sizedBox(width: 12),
+                        buildSocialButton(asset: AppAssets.github),
                       ],
-                    )
+                    ),
+                    Constants.sizedBox(height: 18),
+                    MaterialButton(
+                      onPressed: (){},
+                      color: AppColors.themeColor,
+                      splashColor: AppColors.lawGreen,
+                      padding: EdgeInsets.symmetric(horizontal: 22, vertical: 12),
+                      shape: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: BorderSide.none),
+                      hoverColor: AppColors.aqua,
+                      elevation: 6,
+                      height: 46,
+                      minWidth: 130,
+                      focusElevation: 12,
+                     child: Text(
+                      'Download cv',
+                      style: AppTextStyles.headerTextStyle()),
+                    ),
                   ],
                 )
               ],
@@ -96,4 +127,26 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
+
+  Ink buildSocialButton({required String asset}){
+    return Ink(
+      maxRadius: 20,
+      backgroundColor: AppColors.themeColor,
+      child: InkWell(
+        splashColor: AppColors.lawGreen,
+        hoverColor: AppColors.aqua,
+        child: CircleAvatar(
+          maxRadius: 18,
+          backgroundColor: AppColors.bgColor,
+          child: Image.asset(
+            AppAssets.github,
+            width: 20,
+            height: 24,
+            color: AppColors.themeColor,
+            fit: BoxFit.contain,),
+        ),
+      ),
+    );
+  }
 }
+
