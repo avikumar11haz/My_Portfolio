@@ -5,6 +5,8 @@ import 'package:my_portfolio/globals/app_assets.dart';
 import 'package:my_portfolio/globals/app_colors.dart';
 import 'package:my_portfolio/globals/app_text_styles.dart';
 import 'package:my_portfolio/globals/constants.dart';
+import 'package:my_portfolio/views/about_me.dart';
+import 'package:my_portfolio/widgets/profile_animation.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -61,12 +63,16 @@ class HomePage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.only(
-            top: size.height * 0.3,
+            top: size.height * 0.05,
             left: size.width * 0.1,
             right: size.width * 0.1),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -150,11 +156,13 @@ class HomePage extends StatelessWidget {
                     )
                   ],
                 ),
+                const ProfileAnimation(),
               ],
             ),
             const SizedBox(
-              height: 400,
-            )
+              height: 200,
+            ),
+            const AboutMe(),
           ],
         ),
       ),
