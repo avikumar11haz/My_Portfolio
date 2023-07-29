@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/globals/app_assets.dart';
@@ -70,67 +71,89 @@ class HomePage extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Hello, It\'s Me',
-                      style: AppTextStyles.montserratStyle(color: Colors.white),
-                    ),
-                    Constants.sizedBox(height: 15),
-                    Text(
-                      'Avi kumar',
-                      style: AppTextStyles.headingStyles(),
-                    ),
-                    Constants.sizedBox(height: 15),
-                    Row(
-                      children: [
-                        Text(
-                          'And I\'m a ',
-                          style: AppTextStyles.montserratStyle(
-                              color: Colors.white),
-                        ),
-                        AnimatedTextKit(
-                          animatedTexts: [
-                            TyperAnimatedText('Flutter Developer',
-                                textStyle: AppTextStyles.montserratStyle(
-                                    color: AppColors.themeColor)),
-                            TyperAnimatedText('Full Stack Developer',
-                                textStyle: AppTextStyles.montserratStyle(
-                                    color: AppColors.themeColor)),
-                          ],
-                          pause: const Duration(milliseconds: 1000),
-                          displayFullTextOnTap: true,
-                          stopPauseOnTap: true,
-                        )
-                      ],
-                    ),
-                    Constants.sizedBox(height: 15),
-                    SizedBox(
-                      width: size.width * 0.5,
+                    FadeInDown(
+                      duration: const Duration(milliseconds: 1200),
                       child: Text(
-                        'Lorem ipsum is derived from the Latin'
-                        '"dolorem ipsum" roughly translated as'
-                        '"pain itself."',
-                        style: AppTextStyles.normalStyle(),
+                        'Hello, It\'s Me',
+                        style:
+                            AppTextStyles.montserratStyle(color: Colors.white),
+                      ),
+                    ),
+                    Constants.sizedBox(height: 15),
+                    FadeInRight(
+                      duration: const Duration(milliseconds: 1400),
+                      child: Text(
+                        'Avi kumar',
+                        style: AppTextStyles.headingStyles(),
+                      ),
+                    ),
+                    Constants.sizedBox(height: 15),
+                    FadeInLeft(
+                      duration: const Duration(milliseconds: 1400),
+                      child: Row(
+                        children: [
+                          Text(
+                            'And I\'m a ',
+                            style: AppTextStyles.montserratStyle(
+                                color: Colors.white),
+                          ),
+                          AnimatedTextKit(
+                            animatedTexts: [
+                              TyperAnimatedText('Flutter Developer',
+                                  textStyle: AppTextStyles.montserratStyle(
+                                      color: AppColors.themeColor)),
+                              TyperAnimatedText('Full Stack Developer',
+                                  textStyle: AppTextStyles.montserratStyle(
+                                      color: AppColors.themeColor)),
+                            ],
+                            pause: const Duration(milliseconds: 1000),
+                            displayFullTextOnTap: true,
+                            stopPauseOnTap: true,
+                          )
+                        ],
+                      ),
+                    ),
+                    Constants.sizedBox(height: 15),
+                    FadeInDown(
+                      duration: const Duration(milliseconds: 1600),
+                      child: SizedBox(
+                        width: size.width * 0.5,
+                        child: Text(
+                          'Lorem ipsum is derived from the Latin'
+                          '"dolorem ipsum" roughly translated as'
+                          '"pain itself."',
+                          style: AppTextStyles.normalStyle(),
+                        ),
                       ),
                     ),
                     Constants.sizedBox(height: 22),
-                    Row(
-                      children: [
-                        buildSocialButton(asset: AppAssets.facebook),
-                        Constants.sizedBox(width: 12),
-                        buildSocialButton(asset: AppAssets.twitter),
-                        Constants.sizedBox(width: 12),
-                        buildSocialButton(asset: AppAssets.linkedIn),
-                        Constants.sizedBox(width: 12),
-                        buildSocialButton(asset: AppAssets.insta),
-                        Constants.sizedBox(width: 12),
-                        buildSocialButton(asset: AppAssets.github)
-                      ],
+                    FadeInUp(
+                      duration: const Duration(milliseconds: 1600),
+                      child: Row(
+                        children: [
+                          buildSocialButton(asset: AppAssets.facebook),
+                          Constants.sizedBox(width: 12),
+                          buildSocialButton(asset: AppAssets.twitter),
+                          Constants.sizedBox(width: 12),
+                          buildSocialButton(asset: AppAssets.linkedIn),
+                          Constants.sizedBox(width: 12),
+                          buildSocialButton(asset: AppAssets.insta),
+                          Constants.sizedBox(width: 12),
+                          buildSocialButton(asset: AppAssets.github)
+                        ],
+                      ),
                     ),
                     Constants.sizedBox(height: 18),
-                    buildMaterialButton(onTap: (){}),
+                    FadeInUp(
+                      duration: const Duration(milliseconds: 1800),
+                      child: buildMaterialButton(onTap: () {}),
+                    )
                   ],
                 ),
               ],
+            ),
+            const SizedBox(
+              height: 400,
             )
           ],
         ),
@@ -138,7 +161,9 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  MaterialButton buildMaterialButton({required VoidCallback onTap,}) {
+  MaterialButton buildMaterialButton({
+    required VoidCallback onTap,
+  }) {
     return MaterialButton(
       onPressed: onTap,
       color: AppColors.themeColor,
