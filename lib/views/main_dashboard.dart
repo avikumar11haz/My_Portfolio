@@ -6,6 +6,9 @@ import 'package:my_portfolio/views/about_me.dart';
 import 'package:my_portfolio/views/contact_us.dart';
 import 'package:my_portfolio/views/footer_class.dart';
 import 'package:my_portfolio/views/home_page.dart';
+import 'package:my_portfolio/views/my_portfolio.dart';
+import 'package:my_portfolio/views/my_services.dart';
+import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class MainDashBoard extends StatefulWidget {
   const MainDashBoard({Key? key}) : super(key: key);
