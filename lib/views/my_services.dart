@@ -15,6 +15,9 @@ class MyServices extends StatefulWidget {
 
 class _MyServicesState extends State<MyServices> {
   bool isApp = false, isGraphic = false, isDataAnalyst = false;
+
+  final onHoverActive = Matrix4.identity()..translate(0, -10, 0);
+  final onHoverRemove = Matrix4.identity()..translate(0, 0, 0);
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -96,10 +99,14 @@ class _MyServicesState extends State<MyServices> {
       width: hover ? 400 : 390,
       height: hover ? 440 : 430,
       alignment: Alignment.center,
+      transform: hover ? onHoverActive : onHoverRemove,
       padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 24),
       decoration: BoxDecoration(
           color: AppColors.bgColor2,
           borderRadius: BorderRadius.circular(30),
+          border: hover ? Border.all(color: AppColors.themeColor, width: 3
+
+          ) : null,
           boxShadow: const [
             BoxShadow(
                 color: Colors.black54,
