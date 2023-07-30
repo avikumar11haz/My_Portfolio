@@ -34,7 +34,7 @@ class _MyServicesState extends State<MyServices> {
             duration: const Duration(milliseconds: 1200),
             child: RichText(
                 text: TextSpan(
-                    text: 'My',
+                    text: 'My ',
                     style: AppTextStyles.headingStyles(fontSize: 30),
                     children: [
                   TextSpan(
