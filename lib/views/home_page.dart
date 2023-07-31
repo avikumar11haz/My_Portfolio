@@ -7,6 +7,7 @@ import 'package:my_portfolio/globals/app_colors.dart';
 import 'package:my_portfolio/globals/app_text_styles.dart';
 import 'package:my_portfolio/globals/constants.dart';
 import 'package:my_portfolio/views/about_me.dart';
+import 'package:my_portfolio/views/contact_us.dart';
 import 'package:my_portfolio/views/my_portfolio.dart';
 import 'package:my_portfolio/views/my_services.dart';
 import 'package:my_portfolio/widgets/profile_animation.dart';
@@ -169,7 +170,8 @@ class HomePage extends StatelessWidget {
             ),
             const AboutMe(),
             const MyServices(),
-            const MyPortfolio()
+            const MyPortfolio(),
+            const ContactUs()
           ],
         ),
       ),
