@@ -192,18 +192,34 @@ class _HomePageState extends State<HomePage> {
                       Constants.sizedBox(height: 22),
                       FadeInUp(
                         duration: const Duration(milliseconds: 1600),
-                        child: Row(
-                          children: [
-                            buildSocialButton(asset: AppAssets.facebook),
-                            Constants.sizedBox(width: 12),
-                            buildSocialButton(asset: AppAssets.twitter),
-                            Constants.sizedBox(width: 12),
-                            buildSocialButton(asset: AppAssets.linkedIn),
-                            Constants.sizedBox(width: 12),
-                            buildSocialButton(asset: AppAssets.insta),
-                            Constants.sizedBox(width: 12),
-                            buildSocialButton(asset: AppAssets.github)
-                          ],
+                        child: SizedBox(
+                          height: 48,
+                          child: ListView.separated(
+                            itemCount: socialButtons.length,
+                              shrinkWrap: true,
+                              scrollDirection: Axis.horizontal,
+                              separatorBuilder: (context, child) =>
+                              Constants.sizedBox(width: 8),
+                              itemBuilder: (context, index){
+                              return InkWell(
+                                onTap: (){},
+                                onHover: (value){
+                                  setState(() {
+                                    if(value){
+                                      socialBI = index;
+                                    }else{
+                                      socialBI = null;
+                                    }
+                                  });
+                                },
+                                borderRadius: BorderRadius.circular(550.0),
+                                hoverColor: AppColors.themeColor,
+                                splashColor: AppColors.lawGreen,
+                                child: buildSocialButton(
+                                    asset: socialButtons[index],
+                                hover: socialBI == index ? true : false),
+                              );
+                              }),
                         ),
                       ),
                       Constants.sizedBox(height: 18),
@@ -246,7 +262,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Ink buildSocialButton({required String asset}) {
+  Ink buildSocialButton({required String asset, required bool hover}) {
     return Ink(
       width: 45,
       height: 45,
@@ -256,18 +272,11 @@ class _HomePageState extends State<HomePage> {
         shape: BoxShape.circle,
       ),
       padding: const EdgeInsets.all(6),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(500.0),
-        splashColor: AppColors.lawGreen,
-        hoverColor: AppColors.aqua,
-        onTap: () {},
-        child: Image.asset(
-          asset,
-          width: 10,
-          height: 12,
-          color: AppColors.themeColor,
-          //fit: BoxFit.contain,
-        ),
+      child: Image.asset(
+        asset,
+        width: 10,
+        height: 12,
+        color: hover ? AppColors.bgColor : AppColors.themeColor,
       ),
     );
   }
