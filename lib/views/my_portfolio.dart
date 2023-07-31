@@ -13,7 +13,6 @@ class MyPortfolio extends StatefulWidget {
 }
 
 class _MyPortfolioState extends State<MyPortfolio> {
-
   final onHoverEffect = Matrix4.identity()..scale(1.0);
 
   List images = <String>[
@@ -43,7 +42,7 @@ class _MyPortfolioState extends State<MyPortfolio> {
             duration: const Duration(milliseconds: 1200),
             child: RichText(
                 text: TextSpan(
-                    text: 'Latest',
+                    text: 'Latest ',
                     style: AppTextStyles.headingStyles(fontSize: 30),
                     children: [
                   TextSpan(
@@ -71,11 +70,11 @@ class _MyPortfolioState extends State<MyPortfolio> {
                     onTap: () {},
                     onHover: (value) {
                       setState(() {
-                        setState(() {
-                          if (value) {
-                            hoveredIndex = index;
-                          }
-                        });
+                        if (value) {
+                          hoveredIndex = index;
+                        } else {
+                          hoveredIndex = null;
+                        }
                       });
                     },
                     child: Stack(
@@ -90,7 +89,8 @@ class _MyPortfolioState extends State<MyPortfolio> {
                           visible: index == hoveredIndex,
                           child: AnimatedContainer(
                             duration: const Duration(milliseconds: 300),
-                            transform: index == hoveredIndex ? onHoverEffect : null,
+                            transform:
+                                index == hoveredIndex ? onHoverEffect : null,
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 14, vertical: 16),
                             decoration: BoxDecoration(
@@ -117,6 +117,17 @@ class _MyPortfolioState extends State<MyPortfolio> {
                                   style: AppTextStyles.normalStyle(
                                       color: Colors.black87),
                                   textAlign: TextAlign.center,
+                                ),
+                                Constants.sizedBox(height: 30),
+                                CircleAvatar(
+                                  maxRadius: 25,
+                                  backgroundColor: Colors.white,
+                                  child: Image.asset(
+                                    AppAssets.share,
+                                    width: 25,
+                                    height: 25,
+                                    fit: BoxFit.fill,
+                                  ),
                                 )
                               ],
                             ),
