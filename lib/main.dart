@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/views/home_page.dart';
 import 'package:my_portfolio/views/main_dashboard.dart';
 
 void main() {
@@ -25,7 +24,7 @@ class MyApp extends StatelessWidget {
       //   bucket: bucket,
       //   child: const HomePage(),
       // ),
-      home: const HomePage(),
+      home: const MainDashBoard(),
     );
   }
 }
