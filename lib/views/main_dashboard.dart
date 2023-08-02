@@ -19,6 +19,8 @@ class MainDashBoard extends StatefulWidget {
 
 class _MainDashBoardState extends State<MainDashBoard> {
   final ItemScrollController _itemScrollController = ItemScrollController();
+  final ItemPositionsListener itemPositionsListener = ItemPositionsListener.create();
+  final ScrollOffsetListener scrollOffsetListener = ScrollOffsetListener.create();
   final onMenuHover = Matrix4.identity()..scale(1.0);
   final menuItems = <String>[
     'Home',
@@ -51,6 +53,8 @@ class _MainDashBoardState extends State<MainDashBoard> {
       });
     });
   }
+
+  final yourScrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -138,10 +142,15 @@ class _MainDashBoardState extends State<MainDashBoard> {
       ),
       body: Scrollbar(
         trackVisibility: true,
-        isAlwaysShown: true,
+        thumbVisibility: true,
+        thickness: 8,
+        interactive: true,
+        controller: yourScrollController,
         child: ScrollablePositionedList.builder(
             itemCount: screenList.length,
             itemScrollController: _itemScrollController,
+            itemPositionsListener: itemPositionsListener,
+            scrollOffsetListener: scrollOffsetListener,
             itemBuilder: (context, index) {
               return screenList[index];
             }),

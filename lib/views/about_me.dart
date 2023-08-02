@@ -19,7 +19,7 @@ class AboutMe extends StatelessWidget {
         mobile: Column(
           children: [
             buildAboutMeContents(),
-            Constants.sizedBox(height: 35),
+            Constants.sizedBox(height: 35.0),
             buildProfilePicture(),
           ],
         ),
@@ -27,7 +27,7 @@ class AboutMe extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             buildProfilePicture(),
-            Constants.sizedBox(width: 25),
+            Constants.sizedBox(width: 25.0),
             Expanded(child: buildAboutMeContents())
           ],
         ),
@@ -35,7 +35,7 @@ class AboutMe extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             buildProfilePicture(),
-            Constants.sizedBox(width: 25),
+            Constants.sizedBox(width: 25.0),
             Expanded(child: buildAboutMeContents())
           ],
         ),
@@ -64,8 +64,8 @@ class AboutMe extends StatelessWidget {
           duration: const Duration(milliseconds: 1200),
           child: RichText(
               text: TextSpan(
-                  text: 'About',
-                  style: AppTextStyles.headingStyles(fontSize: 30),
+                  text: 'About ',
+                  style: AppTextStyles.headingStyles(fontSize: 30.0),
                   children: [
                 TextSpan(
                   text: 'Me!',
@@ -74,16 +74,16 @@ class AboutMe extends StatelessWidget {
                 )
               ])),
         ),
-        Constants.sizedBox(height: 6),
+        Constants.sizedBox(height: 6.0),
         FadeInLeft(
-            duration: const Duration(milliseconds: 1600),
+            duration: const Duration(milliseconds: 1400),
             child: Text(
               'Flutter Developer!',
               style: AppTextStyles.montserratStyle(color: Colors.white),
             )),
-        Constants.sizedBox(height: 8),
+        Constants.sizedBox(height: 8.0),
         FadeInLeft(
-          duration: const Duration(milliseconds: 1400),
+          duration: const Duration(milliseconds: 1600),
           child: Text(
             'kjosjjlj kjij jjoej  jjfosj jijso sjg '
             'jfiej jijsojg ijoj  jfos f og e  ehl o is go '
@@ -92,7 +92,7 @@ class AboutMe extends StatelessWidget {
             style: AppTextStyles.normalStyle(),
           ),
         ),
-        Constants.sizedBox(height: 15),
+        Constants.sizedBox(height: 15.0),
         FadeInUp(
           duration: const Duration(milliseconds: 1800),
           child: AppButtons.buildMaterialButton(

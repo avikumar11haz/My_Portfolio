@@ -18,11 +18,11 @@ class ContactUs extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             buildContactText(),
-            Constants.sizedBox(height: 40),
+            Constants.sizedBox(height: 40.0),
             Material(
               child: Expanded(
                 child: Material(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(10),
                   color: Colors.transparent,
                   elevation: 8,
                   child: TextField(
@@ -33,11 +33,11 @@ class ContactUs extends StatelessWidget {
                 ),
               ),
             ),
-            Constants.sizedBox(height: 20),
+            Constants.sizedBox(height: 20.0),
             Material(
               child: Expanded(
                 child: Material(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(10),
                   color: Colors.transparent,
                   elevation: 8,
                   child: TextField(
@@ -48,11 +48,11 @@ class ContactUs extends StatelessWidget {
                 ),
               ),
             ),
-            Constants.sizedBox(height: 20),
+            Constants.sizedBox(height: 20.0),
             Material(
               child: Expanded(
                 child: Material(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(10),
                   color: Colors.transparent,
                   elevation: 8,
                   child: TextField(
@@ -63,11 +63,11 @@ class ContactUs extends StatelessWidget {
                 ),
               ),
             ),
-            Constants.sizedBox(height: 20),
+            Constants.sizedBox(height: 20.0),
             Material(
               child: Expanded(
                 child: Material(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(10),
                   color: Colors.transparent,
                   elevation: 8,
                   child: TextField(
@@ -78,7 +78,7 @@ class ContactUs extends StatelessWidget {
                 ),
               ),
             ),
-            Constants.sizedBox(height: 20),
+            Constants.sizedBox(height: 20.0),
             Material(
               borderRadius: BorderRadius.circular(10),
               color: Colors.transparent,
@@ -90,10 +90,10 @@ class ContactUs extends StatelessWidget {
                 decoration: buildInputDecoration(hintText: "Your Message"),
               ),
             ),
-            Constants.sizedBox(height: 40),
+            Constants.sizedBox(height: 40.0),
             AppButtons.buildMaterialButton(
                 buttonName: 'Send Message', onTap: () {}),
-            Constants.sizedBox(height: 30)
+            Constants.sizedBox(height: 30.0)
           ],
         ),
         tablet: buildForm(),
@@ -109,12 +109,12 @@ class ContactUs extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           buildContactText(),
-          Constants.sizedBox(height: 40),
+          Constants.sizedBox(height: 40.0),
           Row(
             children: [
               Expanded(
                 child: Material(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(10),
                   color: Colors.transparent,
                   elevation: 8,
                   child: TextField(
@@ -124,10 +124,10 @@ class ContactUs extends StatelessWidget {
                   ),
                 ),
               ),
-              Constants.sizedBox(width: 20),
+              Constants.sizedBox(width: 20.0),
               Expanded(
                 child: Material(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(10),
                   color: Colors.transparent,
                   elevation: 8,
                   child: TextField(
@@ -139,12 +139,12 @@ class ContactUs extends StatelessWidget {
               ),
             ],
           ),
-          Constants.sizedBox(height: 20),
+          Constants.sizedBox(height: 20.0),
           Row(
             children: [
               Expanded(
                 child: Material(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(10),
                   color: Colors.transparent,
                   elevation: 8,
                   child: TextField(
@@ -154,10 +154,10 @@ class ContactUs extends StatelessWidget {
                   ),
                 ),
               ),
-              Constants.sizedBox(width: 20),
+              Constants.sizedBox(width: 20.0),
               Expanded(
                 child: Material(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(10),
                   color: Colors.transparent,
                   elevation: 8,
                   child: TextField(
@@ -169,9 +169,9 @@ class ContactUs extends StatelessWidget {
               ),
             ],
           ),
-          Constants.sizedBox(height: 20),
+          Constants.sizedBox(height: 20.0),
           Material(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(10),
             color: Colors.transparent,
             elevation: 8,
             child: TextField(
@@ -181,10 +181,10 @@ class ContactUs extends StatelessWidget {
               decoration: buildInputDecoration(hintText: "Your Message"),
             ),
           ),
-          Constants.sizedBox(height: 40),
+          Constants.sizedBox(height: 40.0),
           AppButtons.buildMaterialButton(
               buttonName: 'Send Message', onTap: () {}),
-          Constants.sizedBox(height: 30)
+          Constants.sizedBox(height: 30.0)
         ],
       );
   }
@@ -195,7 +195,7 @@ class ContactUs extends StatelessWidget {
             child: RichText(
                 text: TextSpan(
                     text: 'Contact ',
-                    style: AppTextStyles.headingStyles(fontSize: 30),
+                    style: AppTextStyles.headingStyles(fontSize: 30.0),
                     children: [
                       TextSpan(
                         text: 'Me!',
@@ -219,6 +219,6 @@ class ContactUs extends StatelessWidget {
         filled: true,
         fillColor: AppColors.bgColor2,
         contentPadding:
-            const EdgeInsets.symmetric(horizontal: 20, vertical: 12));
+            const EdgeInsets.symmetric(horizontal: 24, vertical: 16));
   }
 }
