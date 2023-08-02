@@ -4,6 +4,7 @@ import 'package:my_portfolio/globals/app_assets.dart';
 import 'package:my_portfolio/globals/app_colors.dart';
 import 'package:my_portfolio/globals/app_text_styles.dart';
 import 'package:my_portfolio/globals/constants.dart';
+import 'package:my_portfolio/helper%20class/helper_class.dart';
 
 class MyPortfolio extends StatefulWidget {
   const MyPortfolio({Key? key}) : super(key: key);
@@ -29,36 +30,43 @@ class _MyPortfolioState extends State<MyPortfolio> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    return Container(
-      width: size.width,
-      height: size.height,
-      color: AppColors.bgColor2,
-      alignment: Alignment.center,
-      padding: EdgeInsets.symmetric(vertical: 30, horizontal: size.width * 0.1),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          FadeInDown(
-            duration: const Duration(milliseconds: 1200),
-            child: RichText(
-                text: TextSpan(
-                    text: 'Latest ',
-                    style: AppTextStyles.headingStyles(fontSize: 30),
-                    children: [
-                  TextSpan(
-                    text: 'Projects',
-                    style: AppTextStyles.headingStyles(
-                        fontSize: 30, color: AppColors.robinEdgeBlue),
-                  )
-                ])),
-          ),
-          Constants.sizedBox(height: 40),
-          GridView.builder(
+    return HelperClass(
+        mobile: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            buildProjectText(),
+            Constants.sizedBox(height: 40),
+            buildProjectGridView(crossAxisCount: 1)
+          ],
+        ),
+        tablet: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            buildProjectText(),
+            Constants.sizedBox(height: 40),
+            buildProjectGridView(crossAxisCount: 2)
+          ],
+        ),
+        desktop: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            buildProjectText(),
+            Constants.sizedBox(height: 40),
+            buildProjectGridView(crossAxisCount: 3)
+          ],
+        ),
+        paddingWidth: size.width * 0.1,
+        bgColor: AppColors.bgColor2,
+      );
+  }
+
+  GridView buildProjectGridView({required int crossAxisCount}) {
+    return GridView.builder(
               itemCount: images.length,
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: crossAxisCount,
                   mainAxisExtent: 280,
                   mainAxisSpacing: 24,
                   crossAxisSpacing: 24),
@@ -79,18 +87,20 @@ class _MyPortfolioState extends State<MyPortfolio> {
                     },
                     child: Stack(
                       children: [
-                        ClipRRect(
+                        Container(
+                          decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            child: Image(
-                              image: AssetImage(image),
-                              fit: BoxFit.fill,
-                            )),
+                            image: DecorationImage(image: AssetImage(image),
+                            fit: BoxFit.fill),
+                          ),
+                        ),
                         Visibility(
                           visible: index == hoveredIndex,
                           child: AnimatedContainer(
-                            duration: const Duration(milliseconds: 300),
+                            duration: const Duration(milliseconds: 600),
                             transform:
-                                index == hoveredIndex ? onHoverEffect : null,
+                            index == hoveredIndex ? onHoverEffect : null,
+                            curve: Curves.easeIn,
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 14, vertical: 16),
                             decoration: BoxDecoration(
@@ -103,7 +113,8 @@ class _MyPortfolioState extends State<MyPortfolio> {
                                       AppColors.themeColor.withOpacity(0.6),
                                     ],
                                     begin: Alignment.bottomCenter,
-                                    end: Alignment.topCenter)),
+                                    end: Alignment.topCenter),
+                            ),
                             child: Column(
                               children: [
                                 Text(
@@ -137,9 +148,23 @@ class _MyPortfolioState extends State<MyPortfolio> {
                     ),
                   ),
                 );
-              })
-        ],
-      ),
-    );
+              });
+  }
+
+  FadeInDown buildProjectText() {
+    return FadeInDown(
+            duration: const Duration(milliseconds: 1200),
+            child: RichText(
+                text: TextSpan(
+                    text: 'Latest ',
+                    style: AppTextStyles.headingStyles(fontSize: 30),
+                    children: [
+                      TextSpan(
+                        text: 'Projects',
+                        style: AppTextStyles.headingStyles(
+                            fontSize: 30, color: AppColors.robinEdgeBlue),
+                      )
+                    ])),
+          );
   }
 }

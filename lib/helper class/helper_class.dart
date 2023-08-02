@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/globals/app_colors.dart';
 
 class HelperClass extends StatelessWidget{
   final Widget mobile;
@@ -26,7 +25,7 @@ class HelperClass extends StatelessWidget{
           alignment: Alignment.center,
           color: bgColor,
           padding: EdgeInsets.symmetric(
-            vertical: size.height * 0.05, horizontal: 18),
+            vertical: size.height * 0.25, horizontal: paddingWidth),
           child: mobile,
         );
       }else if(constraints.maxWidth < 1200){
@@ -35,7 +34,7 @@ class HelperClass extends StatelessWidget{
           alignment: Alignment.center,
           color: bgColor,
           padding: EdgeInsets.symmetric(
-            vertical: size.height * 0.1, horizontal: paddingWidth),
+            vertical: size.height * 0.25, horizontal: paddingWidth),
           child: tablet,
         );
       }else {
@@ -44,7 +43,7 @@ class HelperClass extends StatelessWidget{
           alignment: Alignment.center,
           color: bgColor,
           padding: EdgeInsets.symmetric(
-            vertical: size.height * 0.18, horizontal: paddingWidth),
+            vertical: size.height * 0.25, horizontal: paddingWidth),
           child: desktop,
         );
       }

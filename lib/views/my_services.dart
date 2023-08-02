@@ -5,6 +5,7 @@ import 'package:my_portfolio/globals/app_buttons.dart';
 import 'package:my_portfolio/globals/app_colors.dart';
 import 'package:my_portfolio/globals/app_text_styles.dart';
 import 'package:my_portfolio/globals/constants.dart';
+import 'package:my_portfolio/helper%20class/helper_class.dart';
 
 class MyServices extends StatefulWidget {
   const MyServices({Key? key}) : super(key: key);
@@ -21,33 +22,12 @@ class _MyServicesState extends State<MyServices> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    return Container(
-      width: size.width,
-      height: size.height,
-      color: AppColors.bgColor,
-      alignment: Alignment.center,
-      padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 12),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          FadeInDown(
-            duration: const Duration(milliseconds: 1200),
-            child: RichText(
-                text: TextSpan(
-                    text: 'My ',
-                    style: AppTextStyles.headingStyles(fontSize: 30),
-                    children: [
-                  TextSpan(
-                    text: 'Services',
-                    style: AppTextStyles.headingStyles(
-                        fontSize: 30, color: AppColors.robinEdgeBlue),
-                  )
-                ])),
-          ),
-          Constants.sizedBox(height: 60),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+    return HelperClass(
+          mobile: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
+              buildMyServicesText(),
+              Constants.sizedBox(height: 60),
               InkWell(
                   onTap: () {},
                   onHover: (value) {
@@ -59,7 +39,7 @@ class _MyServicesState extends State<MyServices> {
                       title: 'App Development',
                       asset: AppAssets.code,
                       hover: isApp)),
-              Constants.sizedBox(width: 18),
+              Constants.sizedBox(height: 24),
               InkWell(
                 onTap: () {},
                 onHover: (value) {
@@ -72,7 +52,57 @@ class _MyServicesState extends State<MyServices> {
                     asset: AppAssets.brush,
                     hover: isGraphic),
               ),
-              Constants.sizedBox(width: 18),
+              Constants.sizedBox(height: 24),
+              InkWell(
+                onTap: () {},
+                onHover: (value) {
+                  setState(() {
+                    isDataAnalyst = value;
+                  });
+                },
+                child: buildAnimatedContainer(
+                  title: 'Digital Marketing',
+                  asset: AppAssets.analyst,
+                  hover: isDataAnalyst,
+                ),
+              )
+            ],
+          ),
+          tablet: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              buildMyServicesText(),
+              Constants.sizedBox(height: 60),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  InkWell(
+                      onTap: () {},
+                      onHover: (value) {
+                        setState(() {
+                          isApp = value;
+                        });
+                      },
+                      child: buildAnimatedContainer(
+                          title: 'App Development',
+                          asset: AppAssets.code,
+                          hover: isApp)),
+                  Constants.sizedBox(width: 24),
+                  InkWell(
+                    onTap: () {},
+                    onHover: (value) {
+                      setState(() {
+                        isGraphic = value;
+                      });
+                    },
+                    child: buildAnimatedContainer(
+                        title: 'Graphic Designing',
+                        asset: AppAssets.brush,
+                        hover: isGraphic),
+                  ),
+                ],
+              ),
+              Constants.sizedBox(width: 26),
               InkWell(
                 onTap: () {},
                 onHover: (value) {
@@ -83,30 +113,102 @@ class _MyServicesState extends State<MyServices> {
                 child: buildAnimatedContainer(
                     title: 'Digital Marketing',
                     asset: AppAssets.analyst,
-                    hover: isDataAnalyst),
+                    hover: isDataAnalyst,
+                width: 725,
+                hoverWidth: 735),
               )
             ],
-          )
-        ],
-      ),
+          ),
+          desktop: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              buildMyServicesText(),
+              Constants.sizedBox(height: 60),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  InkWell(
+                      onTap: () {},
+                      onHover: (value) {
+                        setState(() {
+                          isApp = value;
+                        });
+                      },
+                      child: buildAnimatedContainer(
+                          title: 'App Development',
+                          asset: AppAssets.code,
+                          hover: isApp)),
+                  Constants.sizedBox(width: 24),
+                  InkWell(
+                    onTap: () {},
+                    onHover: (value) {
+                      setState(() {
+                        isGraphic = value;
+                      });
+                    },
+                    child: buildAnimatedContainer(
+                        title: 'Graphic Designing',
+                        asset: AppAssets.brush,
+                        hover: isGraphic),
+                  ),
+                  Constants.sizedBox(width: 24),
+                  InkWell(
+                    onTap: () {},
+                    onHover: (value) {
+                      setState(() {
+                        isDataAnalyst = value;
+                      });
+                    },
+                    child: buildAnimatedContainer(
+                        title: 'Digital Marketing',
+                        asset: AppAssets.analyst,
+                        hover: isDataAnalyst,
+                    ),
+                  )
+                ],
+              )
+            ],
+          ),
+          paddingWidth: size.width * 0.04,
+          bgColor: AppColors.bgColor,
+        );
+  }
+
+  FadeInDown buildMyServicesText() {
+    return FadeInDown(
+      duration: const Duration(milliseconds: 1200),
+      child: RichText(
+          text: TextSpan(
+              text: 'My ',
+              style: AppTextStyles.headingStyles(fontSize: 30),
+              children: [
+            TextSpan(
+              text: 'Services',
+              style: AppTextStyles.headingStyles(
+                  fontSize: 30, color: AppColors.robinEdgeBlue),
+            )
+          ])),
     );
   }
 
   AnimatedContainer buildAnimatedContainer(
-      {required String title, required String asset, required bool hover}) {
+      {required String title,
+      required String asset,
+      required bool hover,
+      double width = 350,
+      double hoverWidth = 360}) {
     return AnimatedContainer(
-      duration: const Duration(milliseconds: 600),
-      width: hover ? 400 : 390,
-      height: hover ? 440 : 430,
+      duration: const Duration(milliseconds: 300),
+      width: hover ? hoverWidth : width,
+      height: hover ? 390 : 380,
       alignment: Alignment.center,
       transform: hover ? onHoverActive : onHoverRemove,
       padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 24),
       decoration: BoxDecoration(
           color: AppColors.bgColor2,
           borderRadius: BorderRadius.circular(30),
-          border: hover ? Border.all(color: AppColors.themeColor, width: 3
-
-          ) : null,
+          border:
+              hover ? Border.all(color: AppColors.themeColor, width: 3) : null,
           boxShadow: const [
             BoxShadow(
                 color: Colors.black54,
@@ -125,7 +227,8 @@ class _MyServicesState extends State<MyServices> {
           Constants.sizedBox(height: 30),
           Text(
             title,
-            style: AppTextStyles.montserratStyle(color: Colors.white),
+            style: AppTextStyles.montserratStyle(
+                color: Colors.white, fontSize: 22),
           ),
           Constants.sizedBox(height: 12),
           Text(
@@ -133,7 +236,7 @@ class _MyServicesState extends State<MyServices> {
             'able to demonstrate in the Mobile Application Developer'
             'Resume chief skill sets such as –'
             'Objective – C, C#, and Swift, possess experience with API’s and third-party libraries and be familiar with OOP design principles.',
-            style: AppTextStyles.normalStyle(),
+            style: AppTextStyles.normalStyle(fontSize: 14),
             textAlign: TextAlign.center,
           ),
           Constants.sizedBox(height: 20),
