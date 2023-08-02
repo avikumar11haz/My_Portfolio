@@ -150,7 +150,8 @@ class _MainDashBoardState extends State<MainDashBoard> {
             itemCount: screenList.length,
             itemScrollController: _itemScrollController,
             itemPositionsListener: itemPositionsListener,
-            scrollOffsetListener: scrollOffsetListener,
+            scrollOffsetListener: scrollOffsetListener
+            ,
             itemBuilder: (context, index) {
               return screenList[index];
             }),

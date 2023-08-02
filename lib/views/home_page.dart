@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
         mobile: Column(
         children: [
           buildHomePersonalInfo(size),
-          Constants.sizedBox(height: 25),
+          Constants.sizedBox(height: 25.0),
           const ProfileAnimation(),
         ],
       ),
@@ -50,12 +50,12 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            buildHomePersonalInfo(size),
+            Expanded(child: buildHomePersonalInfo(size)),
             const ProfileAnimation(),
           ],
         ),
       paddingWidth: size.width * 0.1,
-      bgColor: AppColors.bgColor,);
+      bgColor: Colors.transparent,);
 
   }
 

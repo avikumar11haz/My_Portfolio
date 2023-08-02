@@ -233,7 +233,6 @@ class _MyServicesState extends State<MyServices> {
           Constants.sizedBox(height: 12),
           Text(
             'A successful Mobile application developer should be'
-            'able to demonstrate in the Mobile Application Developer'
             'Resume chief skill sets such as –'
             'Objective – C, C#, and Swift, possess experience with API’s and third-party libraries and be familiar with OOP design principles.',
             style: AppTextStyles.normalStyle(fontSize: 14),

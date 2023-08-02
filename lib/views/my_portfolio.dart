@@ -86,6 +86,7 @@ class _MyPortfolioState extends State<MyPortfolio> {
                       });
                     },
                     child: Stack(
+                      alignment: Alignment.center,
                       children: [
                         Container(
                           decoration: BoxDecoration(
