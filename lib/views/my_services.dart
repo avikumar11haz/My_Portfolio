@@ -23,11 +23,59 @@ class _MyServicesState extends State<MyServices> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return HelperClass(
-          mobile: Column(
-            mainAxisSize: MainAxisSize.min,
+      mobile: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          buildMyServicesText(),
+          Constants.sizedBox(height: 60),
+          InkWell(
+              onTap: () {},
+              onHover: (value) {
+                setState(() {
+                  isApp = value;
+                });
+              },
+              child: buildAnimatedContainer(
+                  title: 'App Development',
+                  asset: AppAssets.code,
+                  hover: isApp)),
+          Constants.sizedBox(height: 24),
+          InkWell(
+            onTap: () {},
+            onHover: (value) {
+              setState(() {
+                isGraphic = value;
+              });
+            },
+            child: buildAnimatedContainer(
+                title: 'Graphic Designing',
+                asset: AppAssets.brush,
+                hover: isGraphic),
+          ),
+          Constants.sizedBox(height: 24),
+          InkWell(
+            onTap: () {},
+            onHover: (value) {
+              setState(() {
+                isDataAnalyst = value;
+              });
+            },
+            child: buildAnimatedContainer(
+              title: 'Digital Marketing',
+              asset: AppAssets.analyst,
+              hover: isDataAnalyst,
+            ),
+          )
+        ],
+      ),
+      tablet: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          buildMyServicesText(),
+          Constants.sizedBox(height: 60),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              buildMyServicesText(),
-              Constants.sizedBox(height: 60),
               InkWell(
                   onTap: () {},
                   onHover: (value) {
@@ -39,7 +87,7 @@ class _MyServicesState extends State<MyServices> {
                       title: 'App Development',
                       asset: AppAssets.code,
                       hover: isApp)),
-              Constants.sizedBox(height: 24),
+              Constants.sizedBox(width: 24),
               InkWell(
                 onTap: () {},
                 onHover: (value) {
@@ -52,7 +100,58 @@ class _MyServicesState extends State<MyServices> {
                     asset: AppAssets.brush,
                     hover: isGraphic),
               ),
-              Constants.sizedBox(height: 24),
+            ],
+          ),
+          Constants.sizedBox(width: 26),
+          InkWell(
+            onTap: () {},
+            onHover: (value) {
+              setState(() {
+                isDataAnalyst = value;
+              });
+            },
+            child: buildAnimatedContainer(
+                title: 'Digital Marketing',
+                asset: AppAssets.analyst,
+                hover: isDataAnalyst,
+                width: 725,
+                hoverWidth: 735),
+          )
+        ],
+      ),
+      desktop: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          buildMyServicesText(),
+          Constants.sizedBox(height: 60),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              InkWell(
+                  onTap: () {},
+                  onHover: (value) {
+                    setState(() {
+                      isApp = value;
+                    });
+                  },
+                  child: buildAnimatedContainer(
+                      title: 'App Development',
+                      asset: AppAssets.code,
+                      hover: isApp)),
+              Constants.sizedBox(width: 24),
+              InkWell(
+                onTap: () {},
+                onHover: (value) {
+                  setState(() {
+                    isGraphic = value;
+                  });
+                },
+                child: buildAnimatedContainer(
+                    title: 'Graphic Designing',
+                    asset: AppAssets.brush,
+                    hover: isGraphic),
+              ),
+              Constants.sizedBox(width: 24),
               InkWell(
                 onTap: () {},
                 onHover: (value) {
@@ -67,111 +166,12 @@ class _MyServicesState extends State<MyServices> {
                 ),
               )
             ],
-          ),
-          tablet: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              buildMyServicesText(),
-              Constants.sizedBox(height: 60),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  InkWell(
-                      onTap: () {},
-                      onHover: (value) {
-                        setState(() {
-                          isApp = value;
-                        });
-                      },
-                      child: buildAnimatedContainer(
-                          title: 'App Development',
-                          asset: AppAssets.code,
-                          hover: isApp)),
-                  Constants.sizedBox(width: 24),
-                  InkWell(
-                    onTap: () {},
-                    onHover: (value) {
-                      setState(() {
-                        isGraphic = value;
-                      });
-                    },
-                    child: buildAnimatedContainer(
-                        title: 'Graphic Designing',
-                        asset: AppAssets.brush,
-                        hover: isGraphic),
-                  ),
-                ],
-              ),
-              Constants.sizedBox(width: 26),
-              InkWell(
-                onTap: () {},
-                onHover: (value) {
-                  setState(() {
-                    isDataAnalyst = value;
-                  });
-                },
-                child: buildAnimatedContainer(
-                    title: 'Digital Marketing',
-                    asset: AppAssets.analyst,
-                    hover: isDataAnalyst,
-                width: 725,
-                hoverWidth: 735),
-              )
-            ],
-          ),
-          desktop: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              buildMyServicesText(),
-              Constants.sizedBox(height: 60),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  InkWell(
-                      onTap: () {},
-                      onHover: (value) {
-                        setState(() {
-                          isApp = value;
-                        });
-                      },
-                      child: buildAnimatedContainer(
-                          title: 'App Development',
-                          asset: AppAssets.code,
-                          hover: isApp)),
-                  Constants.sizedBox(width: 24),
-                  InkWell(
-                    onTap: () {},
-                    onHover: (value) {
-                      setState(() {
-                        isGraphic = value;
-                      });
-                    },
-                    child: buildAnimatedContainer(
-                        title: 'Graphic Designing',
-                        asset: AppAssets.brush,
-                        hover: isGraphic),
-                  ),
-                  Constants.sizedBox(width: 24),
-                  InkWell(
-                    onTap: () {},
-                    onHover: (value) {
-                      setState(() {
-                        isDataAnalyst = value;
-                      });
-                    },
-                    child: buildAnimatedContainer(
-                        title: 'Digital Marketing',
-                        asset: AppAssets.analyst,
-                        hover: isDataAnalyst,
-                    ),
-                  )
-                ],
-              )
-            ],
-          ),
-          paddingWidth: size.width * 0.04,
-          bgColor: AppColors.bgColor,
-        );
+          )
+        ],
+      ),
+      paddingWidth: size.width * 0.04,
+      bgColor: AppColors.bgColor,
+    );
   }
 
   FadeInDown buildMyServicesText() {

@@ -17,7 +17,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   final socialButtons = <String>[
     AppAssets.facebook,
     AppAssets.twitter,
@@ -31,136 +30,133 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return HelperClass(
-        mobile: Column(
+      mobile: Column(
         children: [
           buildHomePersonalInfo(size),
           Constants.sizedBox(height: 25.0),
           const ProfileAnimation(),
         ],
       ),
-        tablet: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            Expanded(child: buildHomePersonalInfo(size)),
-            const ProfileAnimation(),
-          ],
-        ),
-        desktop: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            Expanded(child: buildHomePersonalInfo(size)),
-            const ProfileAnimation(),
-          ],
-        ),
+      tablet: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Expanded(child: buildHomePersonalInfo(size)),
+          const ProfileAnimation(),
+        ],
+      ),
+      desktop: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Expanded(child: buildHomePersonalInfo(size)),
+          const ProfileAnimation(),
+        ],
+      ),
       paddingWidth: size.width * 0.1,
-      bgColor: Colors.transparent,);
-
+      bgColor: Colors.transparent,
+    );
   }
 
   Column buildHomePersonalInfo(Size size) {
     return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  FadeInDown(
-                    duration: const Duration(milliseconds: 1200),
-                    child: Text(
-                      'Hello, It\'s Me',
-                      style: AppTextStyles.montserratStyle(
-                          color: Colors.white),
-                    ),
-                  ),
-                  Constants.sizedBox(height: 15),
-                  FadeInRight(
-                    duration: const Duration(milliseconds: 1400),
-                    child: Text(
-                      'Avi kumar',
-                      style: AppTextStyles.headingStyles(),
-                    ),
-                  ),
-                  Constants.sizedBox(height: 15),
-                  FadeInLeft(
-                    duration: const Duration(milliseconds: 1400),
-                    child: Row(
-                      children: [
-                        Text(
-                          'And I\'m a ',
-                          style: AppTextStyles.montserratStyle(
-                              color: Colors.white),
-                        ),
-                        AnimatedTextKit(
-                          animatedTexts: [
-                            TyperAnimatedText('Flutter Developer',
-                                textStyle: AppTextStyles.montserratStyle(
-                                    color: AppColors.themeColor)),
-                            TyperAnimatedText('Full Stack Developer',
-                                textStyle: AppTextStyles.montserratStyle(
-                                    color: AppColors.themeColor)),
-                          ],
-                          pause: const Duration(milliseconds: 1000),
-                          displayFullTextOnTap: true,
-                          stopPauseOnTap: true,
-                        )
-                      ],
-                    ),
-                  ),
-                  Constants.sizedBox(height: 15),
-                  FadeInDown(
-                    duration: const Duration(milliseconds: 1600),
-                    child: SizedBox(
-                      width: size.width * 0.5,
-                      child: Text(
-                        'Lorem ipsum is derived from the Latin'
-                            '"dolorem ipsum" roughly translated as'
-                            '"pain itself."',
-                        style: AppTextStyles.normalStyle(),
-                      ),
-                    ),
-                  ),
-                  Constants.sizedBox(height: 22),
-                  FadeInUp(
-                    duration: const Duration(milliseconds: 1600),
-                    child: SizedBox(
-                      height: 48,
-                      child: ListView.separated(
-                          itemCount: socialButtons.length,
-                          shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          separatorBuilder: (context, child) =>
-                              Constants.sizedBox(width: 8),
-                          itemBuilder: (context, index){
-                            return InkWell(
-                              onTap: (){},
-                              onHover: (value){
-                                setState(() {
-                                  if(value){
-                                    socialBI = index;
-                                  }else{
-                                    socialBI = null;
-                                  }
-                                });
-                              },
-                              borderRadius: BorderRadius.circular(550.0),
-                              hoverColor: AppColors.themeColor,
-                              splashColor: AppColors.lawGreen,
-                              child: buildSocialButton(
-                                  asset: socialButtons[index],
-                                  hover: socialBI == index ? true : false),
-                            );
-                          }),
-                    ),
-                  ),
-                  Constants.sizedBox(height: 18),
-                  FadeInUp(
-                    duration: const Duration(milliseconds: 1800),
-                    child: AppButtons.buildMaterialButton(
-                        onTap: () {}, buttonName: 'Download CV'),
-                  ),
-
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        FadeInDown(
+          duration: const Duration(milliseconds: 1200),
+          child: Text(
+            'Hello, It\'s Me',
+            style: AppTextStyles.montserratStyle(color: Colors.white),
+          ),
+        ),
+        Constants.sizedBox(height: 15),
+        FadeInRight(
+          duration: const Duration(milliseconds: 1400),
+          child: Text(
+            'Avi kumar',
+            style: AppTextStyles.headingStyles(),
+          ),
+        ),
+        Constants.sizedBox(height: 15),
+        FadeInLeft(
+          duration: const Duration(milliseconds: 1400),
+          child: Row(
+            children: [
+              Text(
+                'And I\'m a ',
+                style: AppTextStyles.montserratStyle(color: Colors.white),
+              ),
+              AnimatedTextKit(
+                animatedTexts: [
+                  TyperAnimatedText('Flutter Developer',
+                      textStyle: AppTextStyles.montserratStyle(
+                          color: AppColors.themeColor)),
+                  TyperAnimatedText('Full Stack Developer',
+                      textStyle: AppTextStyles.montserratStyle(
+                          color: AppColors.themeColor)),
                 ],
-              );
+                pause: const Duration(milliseconds: 1000),
+                displayFullTextOnTap: true,
+                stopPauseOnTap: true,
+              )
+            ],
+          ),
+        ),
+        Constants.sizedBox(height: 15),
+        FadeInDown(
+          duration: const Duration(milliseconds: 1600),
+          child: SizedBox(
+            width: size.width * 0.5,
+            child: Text(
+              'Lorem ipsum is derived from the Latin'
+              '"dolorem ipsum" roughly translated as'
+              '"pain itself."',
+              style: AppTextStyles.normalStyle(),
+            ),
+          ),
+        ),
+        Constants.sizedBox(height: 22),
+        FadeInUp(
+          duration: const Duration(milliseconds: 1600),
+          child: SizedBox(
+            height: 48,
+            child: ListView.separated(
+                itemCount: socialButtons.length,
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                separatorBuilder: (context, child) =>
+                    Constants.sizedBox(width: 8),
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: () {},
+                    onHover: (value) {
+                      setState(() {
+                        if (value) {
+                          socialBI = index;
+                        } else {
+                          socialBI = null;
+                        }
+                      });
+                    },
+                    borderRadius: BorderRadius.circular(550.0),
+                    hoverColor: AppColors.themeColor,
+                    splashColor: AppColors.lawGreen,
+                    child: buildSocialButton(
+                        asset: socialButtons[index],
+                        hover: socialBI == index ? true : false),
+                  );
+                }),
+          ),
+        ),
+        Constants.sizedBox(height: 18),
+        FadeInUp(
+          duration: const Duration(milliseconds: 1800),
+          child: AppButtons.buildMaterialButton(
+              onTap: () {}, buttonName: 'Download CV'),
+        ),
+      ],
+    );
   }
 
   Ink buildSocialButton({required String asset, required bool hover}) {
