@@ -85,10 +85,9 @@ class AboutMe extends StatelessWidget {
         FadeInLeft(
           duration: const Duration(milliseconds: 1600),
           child: Text(
-            'kjosjjlj kjij jjoej  jjfosj jijso sjg '
-            'jfiej jijsojg ijoj  jfos f og e  ehl o is go '
-            'dijfofjeoj jgofo osfjof fsofjs ogeojsz  ljf'
-            'fjefoie of pefn ff hfoe ojf  ofo ojs os fso s so fs  fjsk',
+            'I am a passionate Flutter developer with over 2 years of experience in the industry.'
+            'I have a strong understanding of the Flutter framework and Dart programming language,'
+            'and I am proficient in a variety of other technologies, such as React Native, Node.js, and Firebase.',
             style: AppTextStyles.normalStyle(),
           ),
         ),
