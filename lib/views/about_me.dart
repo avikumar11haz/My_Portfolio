@@ -1,5 +1,3 @@
-
-
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/globals/app_assets.dart';
@@ -16,32 +14,32 @@ class AboutMe extends StatelessWidget {
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return HelperClass(
-        mobile: Column(
-          children: [
-            buildAboutMeContents(),
-            Constants.sizedBox(height: 35.0),
-            buildProfilePicture(),
-          ],
-        ),
-        tablet: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            buildProfilePicture(),
-            Constants.sizedBox(width: 25.0),
-            Expanded(child: buildAboutMeContents())
-          ],
-        ),
-        desktop: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            buildProfilePicture(),
-            Constants.sizedBox(width: 25.0),
-            Expanded(child: buildAboutMeContents())
-          ],
-        ),
-        paddingWidth: size.width * 0.1,
-        bgColor: AppColors.bgColor2,
-      );
+      mobile: Column(
+        children: [
+          buildAboutMeContents(),
+          Constants.sizedBox(height: 35.0),
+          buildProfilePicture(),
+        ],
+      ),
+      tablet: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          buildProfilePicture(),
+          Constants.sizedBox(width: 25.0),
+          Expanded(child: buildAboutMeContents())
+        ],
+      ),
+      desktop: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          buildProfilePicture(),
+          Constants.sizedBox(width: 25.0),
+          Expanded(child: buildAboutMeContents())
+        ],
+      ),
+      paddingWidth: size.width * 0.1,
+      bgColor: AppColors.bgColor2,
+    );
   }
 
   FadeInRight buildProfilePicture() {
