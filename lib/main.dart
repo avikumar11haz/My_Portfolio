@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    //final PageStorageBucket bucket = PageStorageBucket();
+    final PageStorageBucket bucket = PageStorageBucket();
     return MaterialApp(
       title: 'My Portfolio',
       debugShowCheckedModeBanner: false,
@@ -20,11 +20,11 @@ class MyApp extends StatelessWidget {
         // useMaterial3: true,
         primarySwatch: Colors.blue,
       ),
-      // home: PageStorage(
-      //   bucket: bucket,
-      //   child: const HomePage(),
-      // ),
-      home: const MainDashBoard(),
+       home: PageStorage(
+         bucket: bucket,
+         child: const MainDashBoard(),
+       ),
+      //home: const MainDashBoard(),
     );
   }
 }

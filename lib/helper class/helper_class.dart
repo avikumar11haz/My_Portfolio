@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class HelperClass extends StatelessWidget{
+class HelperClass extends StatelessWidget {
   final Widget mobile;
   final Widget tablet;
   final Widget desktop;
@@ -13,37 +13,37 @@ class HelperClass extends StatelessWidget{
     required this.desktop,
     required this.paddingWidth,
     required this.bgColor,
-   }) : super(key: key);
+  }) : super(key: key);
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    return LayoutBuilder(builder: (context, constraints){
-      if(constraints.maxWidth < 768){
+    return LayoutBuilder(builder: (context, constraints) {
+      if (constraints.maxWidth < 768) {
         return Container(
           width: size.width,
           alignment: Alignment.center,
           color: bgColor,
           padding: EdgeInsets.symmetric(
-            vertical: size.height * 0.05, horizontal: 18),
+              vertical: size.height * 0.05, horizontal: 18),
           child: mobile,
         );
-      }else if(constraints.maxWidth < 1200){
+      } else if (constraints.maxWidth < 1200) {
         return Container(
           width: size.width,
           alignment: Alignment.center,
           color: bgColor,
           padding: EdgeInsets.symmetric(
-            vertical: size.height * 0.1, horizontal: paddingWidth),
+              vertical: size.height * 0.1, horizontal: paddingWidth),
           child: tablet,
         );
-      }else {
+      } else {
         return Container(
           width: size.width,
           alignment: Alignment.center,
           color: bgColor,
           padding: EdgeInsets.symmetric(
-            vertical: size.height * 0.18, horizontal: paddingWidth),
+              vertical: size.height * 0.18, horizontal: paddingWidth),
           child: desktop,
         );
       }
