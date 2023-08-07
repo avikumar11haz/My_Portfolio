@@ -19,8 +19,10 @@ class MainDashBoard extends StatefulWidget {
 
 class _MainDashBoardState extends State<MainDashBoard> {
   final ItemScrollController _itemScrollController = ItemScrollController();
-  final ItemPositionsListener itemPositionsListener = ItemPositionsListener.create();
-  final ScrollOffsetListener scrollOffsetListener = ScrollOffsetListener.create();
+  final ItemPositionsListener itemPositionsListener =
+      ItemPositionsListener.create();
+  final ScrollOffsetListener scrollOffsetListener =
+      ScrollOffsetListener.create();
   final onMenuHover = Matrix4.identity()..scale(1.0);
   final menuItems = <String>[
     'Home',
@@ -150,8 +152,7 @@ class _MainDashBoardState extends State<MainDashBoard> {
             itemCount: screenList.length,
             itemScrollController: _itemScrollController,
             itemPositionsListener: itemPositionsListener,
-            scrollOffsetListener: scrollOffsetListener
-            ,
+            scrollOffsetListener: scrollOffsetListener,
             itemBuilder: (context, index) {
               return screenList[index];
             }),
