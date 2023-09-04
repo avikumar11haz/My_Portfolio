@@ -108,7 +108,7 @@ class _HomePageState extends State<HomePage> {
           duration: const Duration(milliseconds: 1600),
           child: SizedBox(
             width: size.width * 0.5,
-            child: Text(
+            child: Text( // add some text here change after some time
               'Lorem ipsum is derived from the Latin'
               '"dolorem ipsum" roughly translated as'
               '"pain itself."',
