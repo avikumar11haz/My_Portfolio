@@ -48,7 +48,7 @@ class _MyServicesState extends State<MyServices> {
               });
             },
             child: buildAnimatedContainer(
-                title: 'Graphic Designing',
+                title: 'Graphic Designing',   //need to change
                 asset: AppAssets.brush,
                 hover: isGraphic),
           ),
@@ -61,7 +61,7 @@ class _MyServicesState extends State<MyServices> {
               });
             },
             child: buildAnimatedContainer(
-              title: 'Digital Marketing',
+              title: 'Digital Marketing',  //need to change
               asset: AppAssets.analyst,
               hover: isDataAnalyst,
             ),
@@ -96,7 +96,7 @@ class _MyServicesState extends State<MyServices> {
                   });
                 },
                 child: buildAnimatedContainer(
-                    title: 'Graphic Designing',
+                    title: 'Graphic Designing',  // need to change
                     asset: AppAssets.brush,
                     hover: isGraphic),
               ),
@@ -111,7 +111,7 @@ class _MyServicesState extends State<MyServices> {
               });
             },
             child: buildAnimatedContainer(
-                title: 'Digital Marketing',
+                title: 'Digital Marketing',  // need to change
                 asset: AppAssets.analyst,
                 hover: isDataAnalyst,
                 width: 725,
@@ -147,7 +147,7 @@ class _MyServicesState extends State<MyServices> {
                   });
                 },
                 child: buildAnimatedContainer(
-                    title: 'Graphic Designing',
+                    title: 'Graphic Designing',  // need to change
                     asset: AppAssets.brush,
                     hover: isGraphic),
               ),
@@ -160,7 +160,7 @@ class _MyServicesState extends State<MyServices> {
                   });
                 },
                 child: buildAnimatedContainer(
-                  title: 'Digital Marketing',
+                  title: 'Digital Marketing', //need to change
                   asset: AppAssets.analyst,
                   hover: isDataAnalyst,
                 ),

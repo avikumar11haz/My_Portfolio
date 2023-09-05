@@ -20,13 +20,11 @@ class MyApp extends StatelessWidget {
         // useMaterial3: true,
         primarySwatch: Colors.blue,
       ),
-       home: PageStorage(
-         bucket: bucket,
-         child: const MainDashBoard(),
-       ),
+      home: PageStorage(
+        bucket: bucket,
+        child: const MainDashBoard(),
+      ),
       //home: const MainDashBoard(),
     );
   }
 }
-
-
