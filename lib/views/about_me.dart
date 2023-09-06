@@ -85,7 +85,7 @@ class AboutMe extends StatelessWidget {
           child: Text(
             'I am a passionate Flutter developer with over 2 years of experience in the industry.'
             'I have a strong understanding of the Flutter framework and Dart programming language,'
-            'and I am proficient in a variety of other technologies, such as React Native, Node.js, and Firebase.',
+            'and I am proficient in a variety of other technologies, such as Reactjs, Node.js, and Firebase.',
             style: AppTextStyles.normalStyle(),
           ),
         ),
